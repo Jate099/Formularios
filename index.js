@@ -4,9 +4,12 @@ var render = require('express-handlebars');
 var app = express();
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
 app.engine('handlebars', render());
 app.set('view engine', 'handlebars');
+
+const fs = require('fs');
 
 app.get('/', function(request, response){
     var context = {
@@ -16,9 +19,33 @@ app.get('/', function(request, response){
     response.render('home', context);
 });
 
+var cont;
+var cont = 0;
 app.post('/login', function(request, response){
-    console.log('salu2');
-    response.send('salu2');
+    console.log(request.body);
+    //response.send('salu2');
+    
+    function archivoEscrito(){
+        console.log("el archivo se creo");
+    }
+    fs.writeFile('login' + cont + '.txt', 'correo: ' + request.body.correo + ' contraseña: ' + request.body.contrasena, 'utf8', archivoEscrito);
+    cont++;
+
+    /*fs.readFile('message.txt', 'utf8', function(err, data){
+        if(err) throw err;
+        console.log(data);
+    });*/
+
+    response.redirect('/bienvenida');
+
+});
+
+app.get('/bienvenida', function(request, response){
+    var context = {
+        titulo: 'Bienvenda',
+    };
+
+    response.render('bienvenida', context);
 });
 
 app.listen(3000);
