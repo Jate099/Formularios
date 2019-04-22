@@ -11,6 +11,20 @@ app.set('view engine', 'handlebars');
 
 const fs = require('fs');
 
+localStorage.setItem('variable', 'hola');
+
+function cambioVariable(){
+    localStorage.setItem('variable', 'adios');
+}
+window.addEventListener('click', cambioVariable);
+
+var correo = document.querySelector('.correo');
+
+function guadarCorreo(){
+    localStorage.setItem('correo', correo.value);
+}
+correo.addEventListener('input', guadarCorreo);
+
 app.get('/', function(request, response){
     var context = {
         titulo: 'pagina principal',
