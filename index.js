@@ -13,6 +13,8 @@ const fs = require('fs');
 
 localStorage.setItem('variable', 'hola');
 
+
+//crear una coleccion con todos los elementos
 [
     {
         "_id": 1,
@@ -37,6 +39,13 @@ localStorage.setItem('variable', 'hola');
     },
 
     {
+        "_id": 2,
+        "nombre": "gorra",
+        "precio": 3000,
+        "descripcion": "lorem",
+        "categoria": "headwear",
+        "imagenes": ["imagen1.jpg", "imagen2.jpg"],
+        "colores": ["rojo", "blanco"],
 
     }
 ]
