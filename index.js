@@ -13,6 +13,36 @@ const fs = require('fs');
 
 localStorage.setItem('variable', 'hola');
 
+[
+    {
+        "_id": 1,
+        "nombre": "camiseta",
+        "precio": 2000,
+        "descripcion": "lorem",
+        "categoria": "ropa",
+        "imagenes": ["imagen1.jpg", "imagen2.jpg"],
+        "colores": ["rojo", "blanco"],
+        "opciones": [
+            {
+                "nombre": "rojo",
+                "imagenes": ["imagen1.jpg", "imagen2.jpg"],
+            },
+
+            {
+                "nombre": "blanco",
+                "imagenes": ["imagen1.jpg", "imagen2.jpg"],
+            },
+            
+        ]
+    },
+
+    {
+
+    }
+]
+
+
+
 function cambioVariable(){
     localStorage.setItem('variable', 'adios');
 }
